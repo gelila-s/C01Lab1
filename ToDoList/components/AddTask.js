@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
-import { v4 as uuidv4 } from 'uuid';
+import { View, TextInput, Button, StyleSheet } from 'react-native';
 
 const AddTask = ({ onAddTask }) => {
     const [title, setTitle] = useState('');
 
     const handleAddTask = () => {
-        if (initialValue.trim() !== '') {
+        if (title.trim() !== '') {
             onAddTask(title);
             setTitle('');
         }
@@ -19,7 +18,7 @@ const AddTask = ({ onAddTask }) => {
             placeholder="Enter a task"
             value={title}
             onChangeText={(text) => setTitle(text)}
-            keyboardType="alphanumeric"
+            keyboardType="default"
             returnKeyType="done"
           />
           <Button title="Add Task" onPress={handleAddTask} />
@@ -31,7 +30,7 @@ const styles = StyleSheet.create({
     addTask: {
       margin: 10,
     },
-    input: {
+    input: { 
       height: 40,
       borderColor: 'gray',
       borderWidth: 1,
@@ -39,3 +38,5 @@ const styles = StyleSheet.create({
       paddingHorizontal: 10,
     },
 });
+
+export default AddTask;

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 import { v4 as uuidv4 } from 'uuid';
 import AddTask from './AddTask';
+import 'react-native-get-random-values';
 
 const ToDoList = ({ titles }) => {
     const [toDoList, setToDoList] = useState(titles.map((value) => ({ id: uuidv4(), taskTitle: value })));
@@ -26,7 +27,6 @@ const ToDoList = ({ titles }) => {
             </View>
             ))}
             <AddTask onAddTask = {addToDo} />
-
         </View>
     );
 }
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
 
 ToDoList.defaultProps = {
     title: [],
-  };
+};
 
 export default ToDoList;
 
